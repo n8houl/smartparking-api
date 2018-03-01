@@ -1,5 +1,5 @@
 {
-  "name": "smartparking-server",
+  "name": "smartparking-api",
   "version": "1.0.0",
   "description": "RESTful API for database interactions",
   "main": "index.js",
