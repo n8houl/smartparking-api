@@ -3,7 +3,8 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Spot = require('./api/models/apiModel'),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  jwt = require('jsonwebtoken');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb+srv://n8houl:nah11796@seniordesign2-ssssl.mongodb.net/Garages');
