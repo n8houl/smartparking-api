@@ -2,6 +2,21 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var SchemaLocation = new Schema({ 
+  garage: {
+	type: String,
+	required: 'Enter name of garage'
+  },
+  latitude: {
+	type: Number,
+	required: 'Enter latitude for garage'
+  },
+  longitude: {
+	type: Number,
+	required: 'Enter longitude for garage'
+  }
+}, {collection: 'Locations'});
+
 var SchemaA = new Schema({
   name: {
     type: String,
@@ -98,3 +113,4 @@ module.exports = mongoose.model('SpotsH', SchemaH);
 module.exports = mongoose.model('SpotsI', SchemaI);
 module.exports = mongoose.model('SpotsLibra', SchemaLibra);
 module.exports = mongoose.model('SpotsTest', SchemaTest);
+module.exports = mongoose.model('Location', SchemaLocation);
