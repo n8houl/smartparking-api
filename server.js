@@ -7,7 +7,7 @@ var express = require('express'),
   jwt = require('jsonwebtoken');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://n8houl:nah11796@seniordesign2-ssssl.mongodb.net/Garages');
+mongoose.connect('mongodb://localhost:27017/Garages');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
