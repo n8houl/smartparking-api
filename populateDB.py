@@ -23,7 +23,7 @@ for key in garages.keys():
         data_json = json.dumps(data)
 
         ret = requests.post(url, data=data_json, headers=header)
-        print(ret.status_code)
+        print("sensor_%04d_garage%s added" % (i, key))
 
 for key in geoInfo.keys():
 	p = geoInfo[key]
@@ -34,4 +34,4 @@ for key in geoInfo.keys():
 	data_json = json.dumps(data)
 
 	ret = requests.post('http://localhost:3000/locations/%s' % key, data=data_json, headers=header)
-	print(ret.status_code)
+	print("Garage%s location added" % key)
