@@ -6,7 +6,7 @@ class Pos:
 		self.lat = lat
 		self.lng = lng
 
-garages = {'A': 1623, 'B': 1259, 'C': 1852, 'D': 1241, 'H': 1284, 'I': 1231, 'Libra': 1007}
+garages = {'A': 1623, 'B': 1259, 'C': 1852, 'D': 1241, 'H': 1284, 'I': 1231, 'Libra': 1007, 'Test': 10}
 geoInfo = {'A': Pos(28.599782, -81.205827), 'B': Pos(28.596813, -81.200324), 'C': Pos(28.602423, -81.195915), 'D': Pos(28.604942, -81.197189), 'H': Pos(28.604960, -81.201156), 'I': Pos(28.601125, -81.204892), 'Libra': Pos(28.595973, -81.196675), 'Test': Pos(0, 0)}
 
 ret = requests.get('http://localhost:3000/api/login/postable-user')
