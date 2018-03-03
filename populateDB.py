@@ -22,6 +22,10 @@ for key in garages.keys():
         print(ret.status_code)
 """
 
+ret = requests.get('http://localhost:3000/api/login/postable-user')
+token_data = json.loads(ret.text)
+token = token_data['token']
+
 for key in geoInfo.keys():
 	p = geoInfo[key]
 	lat = p.lat
@@ -29,7 +33,6 @@ for key in geoInfo.keys():
 	name = "Garage"+key
 	data = {"garage": name, "latitude": lat, "longitude": lng}
 	data_json = json.dumps(data)
-	headers = {'Content-type': 'application/json'}
-	
-	ret = requests.post('http://localhost:3000/locations/%s' % key, data=data_json, headers=headers)
+	headers = {'Authorization': 'Bearer %s' % token, 'Content-type': 'application/json'}
 
+	ret = requests.post('http://localhost:3000/locations/%s' % key, data=data_json, headers=headers)

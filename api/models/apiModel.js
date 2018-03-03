@@ -2,7 +2,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var SchemaLocation = new Schema({ 
+var SchemaUser = new Schema({
+  username: {
+    type: String
+  }
+}, {collection: 'Users'});
+
+var SchemaLocation = new Schema({
   garage: {
 	type: String,
 	required: 'Enter name of garage'
@@ -114,3 +120,4 @@ module.exports = mongoose.model('SpotsI', SchemaI);
 module.exports = mongoose.model('SpotsLibra', SchemaLibra);
 module.exports = mongoose.model('SpotsTest', SchemaTest);
 module.exports = mongoose.model('Location', SchemaLocation);
+module.exports = mongoose.model('User', SchemaUser);

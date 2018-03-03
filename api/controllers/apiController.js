@@ -12,18 +12,41 @@ schemaDict['I'] = mongoose.model('SpotsI');
 schemaDict['Libra'] = mongoose.model('SpotsLibra');
 schemaDict['Test'] = mongoose.model('SpotsTest');
 var Loc = mongoose.model('Location');
+var User = mongoose.model('User');
+
+// exports.add_user = function(req, res) {
+//   var new_user = new User(req.body);
+//
+//   new_user.save(function(err, user) {
+//     if(err)
+//       res.send(err);
+//     res.json(user);
+//   });
+// };
+//
+// exports.get_user = function(req, res) {
+//   User.find({username: req.params.un}, function(err, user) {
+//     if(err)
+//       res.send(err);
+//     res.json(user);
+//   });
+// };
 
 exports.login = function(req, res) {
-  const user = {
-    id: 1,
-    un: 'u1'
-  }
-  jwt.sign({user: user}, 'secretkey', (err, token) => {
-    res.json({
-      token: token
-    })
+  User.findOne({username: req.params.un}, function(err, user) {
+    if(err) {
+      res.send(err);
+    }
+
+    jwt.sign({user: user}, 'secretkey', (err, token) => {
+      if(err)
+        res.send(err);
+      res.json({
+        token: token
+      });
+    });
   });
-}
+};
 
 exports.get_location = function(req, res) {
   Loc.find({garage: 'Garage' + req.params.garage}, function(err, loc) {
